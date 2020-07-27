@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
+import dj_database_url
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -110,3 +111,9 @@ STATIC_URL = '/~static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+DATABASES = {
+    'default': dj_database_url.config(conn_max_age=500),
+}
+
+ALLOWED_HOSTS = ['*']
