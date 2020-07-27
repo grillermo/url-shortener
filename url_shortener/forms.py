@@ -3,6 +3,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.core.validators import RegexValidator
 
 from .models import Link
+from .validators import validate_password
 
 _alias = Link._meta.get_field('alias')
 _url = Link._meta.get_field('url')
@@ -33,3 +34,12 @@ class URLShortenerForm(forms.Form):
                    'required': 'true'},
         ),
     )
+
+    password = forms.CharField(
+        max_length=_alias.max_length,
+        required=True,
+        help_text=_("Password to create a new url"),
+        label=_('Password (required)'),
+        validators=[validate_password]
+    )
+
