@@ -26,7 +26,6 @@
         <p>Shorten your long URLs and share them with your friends!</p>
         <ul class="nav nav-tabs" style="border: 0;">
           <li role="presentation" class="{% block index_nav %}{% endblock %}"><a href="{% url 'url_shortener:index' %}">Home</a></li>
-          <li role="presentation" class="{% block analytics_nav %}{% endblock %}"><a href="{% url 'url_shortener:analytics' %}">Analytics</a></li>
           {% block navextra %}{% endblock %}
         </ul>
       </div>
