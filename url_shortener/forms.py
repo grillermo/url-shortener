@@ -37,6 +37,7 @@ class URLShortenerForm(forms.Form):
 
     password = forms.CharField(
         max_length=_alias.max_length,
+        widget=forms.PasswordInput(),
         required=True,
         help_text=_("Password to create a new url"),
         label=_('Password (required)'),
