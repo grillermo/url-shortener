@@ -14,3 +14,4 @@ A simple Django-based URL shortening web app.
 * Upgraded to Django 3.3.1
 * Added password protection field(i was getting robot spam)
 * Hidden analytics link
+* Support for ShortMenu check the [wiki for the configuration](https://github.com/grillermo/url-shortener/wiki/How-to-use-with-ShortMenu)
