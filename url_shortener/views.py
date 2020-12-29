@@ -2,6 +2,7 @@ from django.urls import reverse
 from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 from django.http import (HttpResponseRedirect,
+                         HttpResponse,
                          Http404,
                          HttpResponsePermanentRedirect)
 
@@ -33,7 +34,11 @@ def index(request):
             except Link.DoesNotExist:
                 new_link.alias = alias or hash_encode(1)
             new_link.save()
-            return HttpResponseRedirect(reverse('url_shortener:preview', args=(original_alias or new_link.alias,)))
+            if 'api' in request.headers:
+                return HttpResponse(request.build_absolute_uri(new_link.alias))
+            else:
+                return HttpResponseRedirect(reverse('url_shortener:preview', args=(original_alias or new_link.alias,)))
+
     else:
         form = URLShortenerForm()
     return render(request, 'url_shortener/index.html', {
