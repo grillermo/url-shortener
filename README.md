@@ -8,3 +8,9 @@
 A simple Django-based URL shortening web app.
 
 <img src="http://i.imgur.com/rDkOd8e.png" alt="URL Shortener Screenshot" />
+
+## In this fork
+
+* Upgraded to Django 3.3.1
+* Added password protection field(i was getting robot spam)
+* Hidden analytics link
