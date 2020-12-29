@@ -13,9 +13,3 @@ urlpatterns = [
     url(r'^(?P<alias>[a-zA-Z0-9-_]+)\+$', views.preview, name='preview'),
     url(r'^~analytics/$', views.analytics, name='analytics'),
 ]
-
-# For Heroku
-if 'DYNO' in os.environ:
-    urlpatterns += [
-        url(r'^~static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
-    ]
